@@ -1,5 +1,6 @@
 import * as types from '../types'
 let wxApi = require('../../assets/js/wxApi')
+let wxRequest = require('../../assets/js/wxRequest')
 
 const state = {
   wxIsLogin: false,
@@ -19,26 +20,43 @@ const actions = {
   // 登陆
   wxLogin: ({commit, dispatch}, playload) => {
     let wxLogin = wxApi.wxLogin()
+    let wxGetSetting = wxApi.wxGetSetting()
+    let wxGetUserInfo = wxApi.wxGetUserInfo()
     wxLogin().then(res => {
-      commit(types.WXLOGIN, true)
-      console.log(res)
+      if(res.code){
+        commit(types.WXLOGIN, true)
+        wxGetSetting().then(res => {
+          if(res.authSetting['scope.userInfo']){
+            wxGetUserInfo().then(res => {
+              commit(types.WXGETWXUSERINFO, res.userInfo)
+              /*
+              wxRequest.postRequest('/user/login', {
+                accountName : 'admin',
+                password: '"rxLjFDVI7VudNBIjaO2AL+XaZ+Wy3oDwM8OT61qvtdxKGmFebXk6SdRcnI0ItH3av7u7D5CWMIVEi3/sxp6pjIvuTcxX581YRsQRqapJ6q9uu0YxhN0vePoYi0u/MAvyDxlK/lZ73Ee/Gwo8qm0vub/P8ZBzTWDsIANH1PQ/q9Q="'
+              }).then(res => {
+                console.log(res.data)
+              })
+              */
+            })
+          } else {
+
+          }
+        })
+      }
     })
     .catch(reason => {
       commit(types.WXLOGIN, false)
-      console.log('reason' + reason)
-    })
-    .finally(res => {
-      console.log(res)
     })
   }
 }
 
 const mutations = {
-  [types.WXLOGIN] (state, palyload) {
-    state.wxIsLogin = palyload
-    // wx.clearStorage()
-    wxApi.wxSetStorage('wxIsLogin', palyload)
-    console.log(wxApi.wxGetStorage('wxIsLogin'))
+  [types.WXLOGIN] (state, playload) {
+    state.wxIsLogin = playload
+  },
+  [types.WXGETWXUSERINFO] (state, playload) {
+    state.wxUserInfo = playload
+    console.log(state)
   }
 }
 

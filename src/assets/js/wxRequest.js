@@ -1,4 +1,6 @@
 let Promise = require('promise')
+var Fly = require('flyio/dist/npm/wx')
+var fly = new Fly()
 let config = require('./config')
 
 function wxPromisify (fn) {
@@ -33,15 +35,7 @@ Promise.prototype.finally = function (callback) {
  * data 以对象的格式传入
  */
 function getRequest (url, data) {
-  var getRequest = wxPromisify(wx.request)
-  return getRequest({
-    url: config.default.origin + config.default.preHash + url,
-    method: 'GET',
-    data: data,
-    header: {
-      'Content-Type': 'application/json'
-    }
-  })
+  return fly.get(config.default.origin + config.default.preHash + url, data)
 }
 
 /**
@@ -50,15 +44,7 @@ function getRequest (url, data) {
  * data 以对象的格式传入
  */
 function postRequest (url, data) {
-  var postRequest = wxPromisify(wx.request)
-  return postRequest({
-    url: config.default.origin + config.default.preHash + url,
-    method: 'POST',
-    data: data,
-    header: {
-      'content-type': 'application/x-www-form-urlencoded'
-    }
-  })
+  return fly.post(config.default.origin + config.default.preHash + url, data)
 }
 
 module.exports = {

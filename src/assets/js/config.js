@@ -4,6 +4,6 @@
 export default {
   // origin: 'https://pms.uzhujf.com',// prod
   // origin: 'https://caweixin.uzhujf.com', // 微店test
-  origin: 'https://capms.uzhujf.com', // pmstest
+  origin: 'http://cafinop.uzhujf.com/', // pmstest
   preHash: '/api'
 }

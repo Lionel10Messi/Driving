@@ -1,15 +1,14 @@
 <template>
-  <view>
-    <swiper :indicatorDots="true"
+  <view class="page__bd page__bd_spacing">
+    <swiper :indicator-dots="true"
             :autoplay="true"
             :interval="interval"
-            :duration="duration"
-            style="height: 300rpx">
-      <block v-for="(item,index) in imgUrls" :key="index">
+            :duration="duration">
+      <div v-for="item in imgUrls" :key="index">
         <swiper-item>
-          <image :src="item" style="width: 100%;height: 100%"/>
+          <image :src="item" class="slide-image" />
         </swiper-item>
-      </block>
+      </div>
     </swiper>
   </view>
 </template>
@@ -25,7 +24,7 @@
         ],
         indicatorDots: true,
         autoplay: true,
-        interval: 2000,
+        interval: 5000,
         duration: 1000
       }
     },
@@ -43,5 +42,8 @@
 </script>
 
 <style scoped>
-
+  .slide-image {
+    width: 100%;
+    height: 100%;
+  }
 </style>

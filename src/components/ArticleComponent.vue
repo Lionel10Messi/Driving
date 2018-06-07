@@ -1,25 +1,35 @@
 <template>
   <view style="background-color: #999">
-    <view class="articleContent">
-      <view class="leftView">
-        <view style="font-size: 50rpx">16</view>
-        <view style="font-size: 30rpx">2018/05</view>
-      </view>
-      <view class="rightView">
-        <div class="title">啦啦啦啦</div>
-        <div style="font-size: 30rpx" class="content">啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</div>
-      </view>
-    </view>
-    <view class="articleContent">
-      <view class="leftView">
-        <view style="font-size: 50rpx">16</view>
-        <view style="font-size: 30rpx">2018/05</view>
-      </view>
-      <view class="rightView">
-        <div class="title">啦啦啦啦</div>
-        <div style="font-size: 30rpx" class="content">啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</div>
-      </view>
-    </view>
+    <div class="weui-panel weui-panel_access">
+      <div class="weui-panel__bd">
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <div class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="line-height: inherit">
+            <view style="font-size: 50rpx">16</view>
+            <view style="font-size: 30rpx">2018/05</view>
+          </div>
+          <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <div class="weui-media-box__title">标题一</div>
+            <div class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</div>
+          </div>
+        </navigator>
+        <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <div class="weui-media-box__hd weui-media-box__hd_in-appmsg" style="line-height: inherit">
+            <view style="font-size: 50rpx">16</view>
+            <view style="font-size: 30rpx">2018/05</view>
+          </div>
+          <div class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <div class="weui-media-box__title">标题二</div>
+            <div class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</div>
+          </div>
+        </navigator>
+      </div>
+      <div class="weui-panel__ft">
+        <div class="weui-cell weui-cell_access weui-cell_link">
+          <div class="weui-cell__bd">查看更多</div>
+          <div class="weui-cell__ft weui-cell__ft_in-access"></div>
+        </div>
+      </div>
+    </div>
   </view>
 </template>
 
@@ -43,36 +53,4 @@
 </script>
 
 <style scoped>
-  .articleContent{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 1px;
-    background-color: #fff;
-    height: 200rpx;
-    padding: 20rpx;
-  }
-  .leftView{
-    width: 25%;
-    margin-right: 3%;
-    text-align: center;
-    border-right:1px solid #999;
-  }
-  .rightView{
-    width: 70%;
-  }
-  .title{
-    overflow:hidden;
-    text-overflow:ellipsis;
-    display:-webkit-box;
-    -webkit-line-clamp:1;
-    -webkit-box-orient:vertical;
-  }
-  .content{
-    overflow:hidden;
-    text-overflow:ellipsis;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-  }
 </style>

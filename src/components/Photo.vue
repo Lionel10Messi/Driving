@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view style="display: flex;flex-wrap: wrap;padding: 20rpx">
+    <view style="display: flex;flex-wrap: wrap;padding: 20rpx;margin-top: 60rpx">
       <view :key="index" v-for="(item,index) in imgList" style="width:50%;height: 250rpx;">
         <image :lazy-load="true" :src="item.src" style="width: 100%;height: 180rpx">
         </image>

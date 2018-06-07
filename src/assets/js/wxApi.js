@@ -30,11 +30,18 @@ function wxLogin () {
   return wxPromisify(wx.login)
 }
 /**
- * 获取微信用户信息
+ * 获取用户的当前设置
  * 注意:须在登录之后调用
  */
 function wxGetUserInfo () {
   return wxPromisify(wx.getUserInfo)
+}
+/**
+ * 获取用户的当前设置
+ * 注意:须在登录之后调用
+ */
+function wxGetSetting () {
+  return wxPromisify(wx.getSetting)
 }
 /**
  * 获取微信用户绑定的手机号
@@ -75,6 +82,7 @@ module.exports = {
   wxPromisify: wxPromisify,
   wxLogin: wxLogin,
   wxGetUserInfo: wxGetUserInfo,
+  wxGetSetting: wxGetSetting,
   wxGetSystemInfo: wxGetSystemInfo,
   wxGetPhoneNumber: wxGetPhoneNumber,
   wxSetStorage: wxSetStorage,

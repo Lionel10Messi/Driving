@@ -1,6 +1,6 @@
 <template>
-  <view class="container">
-    <scroll-view scroll-y enable-back-to-top scroll-with-animation>
+  <view class="page">
+    <scroll-view>
       <IndexSwiper></IndexSwiper>
       <IndexSelectContent></IndexSelectContent>
       <Photo></Photo>
@@ -34,20 +34,7 @@
       }
     },
     created () {
-//      this.wxLogin()
-//      wxRequest.postRequest('/user/login', {
-//        'accountName': '18221636815',
-//        'password': '0000'
-//      }).then(res => {
-//        console.log(res.data)
-//      })
-//      .catch(res => {
-//        console.log(res)
-//      })
-//      .finally(res => {
-//        console.log('dasdsa23')
-//      })
-      // 调用应用实例的方法获取全局数据
+//      this.$store.dispatch('wxLogin')
     },
     mounted () {
       this.$nextTick(function () {

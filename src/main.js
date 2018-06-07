@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import MpvueRouterPatch from 'mpvue-router-patch'
 import store from './store' // vuex
+import '../src/assets/css/weui.css'
 
 Vue.use(MpvueRouterPatch)
 Vue.config.productionTip = false

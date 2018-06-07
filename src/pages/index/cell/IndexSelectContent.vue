@@ -1,9 +1,9 @@
 <template>
   <view>
-    <view class="content">
-      <view @click="goToPath(item.path)" class="contentImg" v-for="(item,index) in contentList" :key="index">
+    <view class="weui-flex">
+      <view @click="goToPath(item.path)" class="weui-flex__item" style="height: 200rpx;" v-for="(item,index) in contentList" :key="index">
         <img :src="item.contentImg" style="width: 100%;height: 100%">
-        <div>{{item.content}}</div>
+        <div style="text-align: center">{{item.content}}</div>
       </view>
     </view>
   </view>
@@ -54,13 +54,13 @@
 </script>
 
 <style scoped>
-  .content{
-    display: flex;
-    text-align: center;
-    height: 300rpx;
-  }
-  .contentImg{
-    width: 25%;
-    height: 80%;
-  }
+  /*.content{*/
+    /*display: flex;*/
+    /*text-align: center;*/
+    /*height: 300rpx;*/
+  /*}*/
+  /*.contentImg{*/
+    /*width: 25%;*/
+    /*height: 80%;*/
+  /*}*/
 </style>
