@@ -6,7 +6,8 @@
             :duration="duration">
       <div v-for="item in imgUrls" :key="index">
         <swiper-item>
-          <image :src="item" class="slide-image" />
+          <image :lazy-load="true" :src="item" class="slide-image">
+          </image>
         </swiper-item>
       </div>
     </swiper>
@@ -18,9 +19,9 @@
     data () {
       return {
         imgUrls: [
-          '../../../static/images/banner.png',
-          '../../../static/images/banner.png',
-          '../../../static/images/banner.png'
+          '../../static/images/banner.png',
+          '../../static/images/banner.png',
+          '../../static/images/banner.png'
         ],
         indicatorDots: true,
         autoplay: true,
