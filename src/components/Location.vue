@@ -1,6 +1,15 @@
 <template>
   <view>
-    <button @tap = 'checkSetting'>获取位置信息</button>
+    <map
+        id="myMap"
+        style="width: 100%; height: 300px;"
+        :latitude="latitude"
+        :longitude="longitude"
+        :markers="markers"
+        :covers="covers"
+        show-location
+    ></map>
+    <button @tap = 'checkSetting'>导航</button>
   </view>
 </template>
 
@@ -8,6 +17,17 @@
   export default {
     data () {
       return {
+        latitude: 31.2689900000,
+        longitude: 121.5387500000,
+        markers: [
+          {
+            id: 1,
+            latitude: 31.2689900000,
+            longitude: 121.5387500000,
+            name: '明月坊'
+          }
+        ],
+        covers: ''
       }
     },
     components: {
@@ -80,6 +100,7 @@
     },
     mounted () {
       this.$nextTick(function () {
+        this.mapCtx = wx.createMapContext('myMap')
       })
     }
   }
