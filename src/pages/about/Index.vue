@@ -5,11 +5,13 @@
     <!--<open-data type="userAvatarUrl"></open-data>-->
     <!--<open-data type="userNickName"></open-data>-->
     <Location></Location>
+    <PhoneCall></PhoneCall>
   </div>
 </template>
 
 <script>
   import Location from '@/components/Location.vue'
+  import PhoneCall from '@/components/PhoneCall.vue'
   export default {
     data () {
       return {
@@ -18,7 +20,8 @@
     computed: {
     },
     components: {
-      Location: Location
+      Location: Location,
+      PhoneCall: PhoneCall
     },
     methods: {
 
