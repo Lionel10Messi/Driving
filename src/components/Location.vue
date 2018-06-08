@@ -9,6 +9,7 @@
         :covers="covers"
         show-location
     ></map>
+    <button v-if="ifGetUserLocation && canIUse" open-type="openSetting" @opensetting = 'opensetting'>打开授权设置页</button>
     <button @tap = 'checkSetting'>导航</button>
   </view>
 </template>
@@ -17,6 +18,7 @@
   export default {
     data () {
       return {
+        canIUse: wx.canIUse('button.open-type.openSetting'),
         latitude: 31.2689900000,
         longitude: 121.5387500000,
         markers: [
@@ -31,6 +33,11 @@
       }
     },
     components: {
+    },
+    computed: {
+      ifGetUserLocation () {
+        return this.$store.state.User.ifGetUserLocation
+      }
     },
     methods: {
       checkSetting () {
@@ -83,8 +90,17 @@
             if (res.confirm) {
               if(!that.canIUse){
                 wx.openSetting({
-                  complete() {
-                    this.checkSetting()
+                  complete(res) {
+                    let title = '授权失败'
+                    if(res.authSetting['scope.userLocation']){
+                      title = '授权成功'
+                    }
+                    wx.showToast({
+                      title: title,
+                      icon: 'success',
+                      duration: 3000,
+                      mask: true
+                    });
                   }
                 })
               }
@@ -92,8 +108,18 @@
           }
         });
       },
-      opensetting(result){
-        this.checkSetting()
+      opensetting(res){
+        let title = '授权失败'
+        if(res.target.authSetting['scope.userLocation']){
+          title = '授权成功'
+          this.$store.commit('WXGETWXUSERLOCATION', false);
+        }
+        wx.showToast({
+          title: title,
+          icon: 'success',
+          duration: 2000,
+          mask: true
+        });
       }
     },
     created () {
