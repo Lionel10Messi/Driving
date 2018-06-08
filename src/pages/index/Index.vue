@@ -28,17 +28,23 @@
       ArticleComponent: ArticleComponent
     },
     methods: {
-//      ...mapActions(['wxLogin']),
-      getUserInfo (e) {
-        console.log(e.mp.detail.userInfo)
-      }
     },
     created () {
 //      this.$store.dispatch('wxLogin')
+
     },
     mounted () {
       this.$nextTick(function () {
       })
+    },
+    onShareAppMessage: function (res) {
+      return {
+        title: '转发标题',
+        path: '/pages/about/index',
+        success (result) {
+          console.log(result)
+        }
+      }
     }
   }
 </script>

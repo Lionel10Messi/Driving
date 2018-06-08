@@ -4,7 +4,9 @@ let wxRequest = require('../../assets/js/wxRequest')
 
 const state = {
   wxIsLogin: false,
-  wxUserInfo: {}
+  wxUserInfo: {},
+  ifGetUserInfo: false,
+  ifGetUserLocation: false
 }
 
 const getters = {
@@ -57,6 +59,9 @@ const mutations = {
   [types.WXGETWXUSERINFO] (state, playload) {
     state.wxUserInfo = playload
     console.log(state)
+  },
+  [types.WXGETWXUSERLOCATION] (state, playload) {
+    state.ifGetUserLocation = playload
   }
 }
 
