@@ -5,6 +5,8 @@ let wxRequest = require('../../assets/js/wxRequest')
 const state = {
   wxIsLogin: false,
   wxUserInfo: {},
+  wxSystemInfo: {},
+  appOptions: {},
   ifGetUserInfo: false,
   ifGetUserLocation: false
 }
@@ -15,6 +17,9 @@ const getters = {
   },
   wxUserInfo: () => {
     return state.wxUserInfo
+  },
+  wxSystemInfo: () => {
+    return state.wxSystemInfo
   }
 }
 
@@ -62,7 +67,13 @@ const mutations = {
   },
   [types.WXGETWXUSERLOCATION] (state, playload) {
     state.ifGetUserLocation = playload
-  }
+  },
+  [types.WXGETWXSYSTEMINFO] (state, playload) {
+    state.wxSystemInfo = playload
+  },
+  [types.WXAPPOPTIONS] (state, playload) {
+    state.appOptions = playload
+  },
 }
 
 export default {
