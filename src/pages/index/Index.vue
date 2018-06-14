@@ -43,18 +43,16 @@
     methods: {
       submit(){
         let validateList = [{
-          name: this.userName,
-          validateType: 'isNonEmpty',
+          value: this.userName,
           errMsg: '用户名不能为空',
         },{
-          name: this.passWord,
-          validateType: 'isNonEmpty',
+          value: this.passWord,
           errMsg: '密码不能为空',
         }]
         validator(validateList).then((res) => {
           console.log(res)
           if(res){
-            console.log('dasds')
+            console.log('验证成功')
           }
         })
       }
