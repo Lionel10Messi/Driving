@@ -57,19 +57,12 @@ module.exports = {
     }
     return true;
   },
-  //添加遮罩
-  showLoading: function () {
-    store.commit("shade",{
-      shadeNum:1
-    });
-  },
-  //消除遮罩
-  stopLoading: function () {
-    setTimeout(()=>{
-      store.commit('shade',{
-        shadeNum:-1
-      })
-    },500)
+  showToasts: function(title, ifSuccess) {
+    wx.showToast({
+      title: title,
+      icon: ifSuccess == true ? 'error' : 'error',
+      duration: 2000
+    })
   },
   getFileMaxSize: function () {
     return 5 * 1024 * 1024;

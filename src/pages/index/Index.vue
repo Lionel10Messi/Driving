@@ -14,9 +14,11 @@
   import IndexSwiper from './cell/IndexSwiper.vue'
   import IndexSelectContent from './cell/IndexSelectContent.vue'
   import Photo from '@/components/Photo.vue'
-  import ArticleComponent from '../../components/ArticleComponent.vue'
+  import ArticleComponent from '@/components/ArticleComponent.vue'
+  import {mixin} from '@/assets/js/mixin.js'
 
   export default {
+    mixins: [mixin],
     data () {
       return {
       }
@@ -29,22 +31,9 @@
     },
     methods: {
     },
-    created () {
-//      this.$store.dispatch('wxLogin')
-
-    },
     mounted () {
       this.$nextTick(function () {
       })
-    },
-    onShareAppMessage: function (res) {
-      return {
-        title: '转发标题',
-        path: '/pages/about/index',
-        success (result) {
-          console.log(result)
-        }
-      }
     }
   }
 </script>

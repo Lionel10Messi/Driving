@@ -1,19 +1,18 @@
 <script>
-export default {
-  data () {
+  import utils from '@/assets/js/utils'
+  export default {
+    data () {
     return {
-      currentRoute: ''
     }
   },
-  created () {
-//    this.currentRoute = this.$router.currentRoute.path
-  },
-  watch: {
-    '$router.currentRoute.path': {
-      handler: function (newVal, oldVal) {
-        console.log(newVal)
-      },
-      deep: true
+  onShareAppMessage: function (res) {
+    let that = this;
+    return {
+      title: '转发标题',
+      path: '/pages/about/index',
+      success (result) {
+        utils.showToasts('分享成功', true)
+      }
     }
   }
 }

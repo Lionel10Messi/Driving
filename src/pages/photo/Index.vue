@@ -6,8 +6,10 @@
 
 <script>
   import Photo from '../../components/photo'
+  import {mixin} from '@/assets/js/mixin.js'
 
   export default {
+    mixins: [mixin],
     data () {
       return {
       }

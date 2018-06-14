@@ -11,6 +11,7 @@
 </template>
 
 <script>
+  import utils from '@/assets/js/utils'
   export default {
 
     data () {
@@ -37,11 +38,19 @@
     components: {
     },
     methods: {
+//      goToPath (path) {
+//        this.$router.push({
+//          path: '/pages' + path,
+//          isTab: true
+//        })
+//      }
       goToPath (path) {
-        this.$router.push({
-          path: '/pages' + path,
-          isTab: true
-        })
+        utils.showToasts('分享成功', false)
+
+//        console.log(path)
+//        this.$router.push({
+//          path: '/pages/index/detail/main',
+//        })
       }
     },
     created () {
