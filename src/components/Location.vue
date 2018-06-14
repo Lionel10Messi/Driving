@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import utils from '@/assets/js/utils'
   export default {
     data () {
       return {
@@ -91,16 +92,12 @@
               if(!that.canIUse){
                 wx.openSetting({
                   complete(res) {
-                    let title = '授权失败'
+                    let title = '授权失败', icon='error'
                     if(res.authSetting['scope.userLocation']){
                       title = '授权成功'
+                      icon = 'success'
                     }
-                    wx.showToast({
-                      title: title,
-                      icon: 'success',
-                      duration: 3000,
-                      mask: true
-                    });
+                    utils.showToasts(title, icon)
                   }
                 })
               }
@@ -109,17 +106,13 @@
         });
       },
       opensetting(res){
-        let title = '授权失败'
+        let title = '授权失败', icon='error'
         if(res.target.authSetting['scope.userLocation']){
           title = '授权成功'
+          icon = 'success'
           this.$store.commit('WXGETWXUSERLOCATION', false);
         }
-        wx.showToast({
-          title: title,
-          icon: 'success',
-          duration: 2000,
-          mask: true
-        });
+        utils.showToasts(title, icon)
       }
     },
     created () {

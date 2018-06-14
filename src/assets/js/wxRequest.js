@@ -1,14 +1,16 @@
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()
 let config = require('./config')
+let origin = config.default.isDebug ? config.default.devOrigin : config.default.prodOrigin,
+    url = origin + config.default.preHash
 
 /**
  * 微信请求get方法
  * url
  * data 以对象的格式传入
  */
-function getRequest (url, data) {
-  return fly.get(config.default.origin + config.default.preHash + url, data)
+function getRequest (httpUrl, data) {
+  return fly.get(url + httpUrl, data)
 }
 
 /**
@@ -16,8 +18,8 @@ function getRequest (url, data) {
  * url
  * data 以对象的格式传入
  */
-function postRequest (url, data) {
-  return fly.post(config.default.origin + config.default.preHash + url, data)
+function postRequest (httpUrl, data) {
+  return fly.post(url + httpUrl, data)
 }
 
 module.exports = {

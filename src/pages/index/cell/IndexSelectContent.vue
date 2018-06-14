@@ -45,8 +45,8 @@
 //        })
 //      }
       goToPath (path) {
-        utils.showToasts('分享成功', false)
-
+//        utils.showToasts('分享成功','success')
+        utils.showLoading()
 //        console.log(path)
 //        this.$router.push({
 //          path: '/pages/index/detail/main',

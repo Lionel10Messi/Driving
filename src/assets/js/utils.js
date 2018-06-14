@@ -57,11 +57,21 @@ module.exports = {
     }
     return true;
   },
-  showToasts: function(title, ifSuccess) {
+  showLoading () {
+    wx.showLoading({
+      title: '加载中...',
+      mask: true
+    })
+  },
+  hideLoading() {
+    wx.hideLoading()
+  },
+  showToasts: function(title, icon, mask) {
     wx.showToast({
       title: title,
-      icon: ifSuccess == true ? 'error' : 'error',
-      duration: 2000
+      icon: icon || 'none',
+      duration: 2000,
+      mask: mask || false
     })
   },
   getFileMaxSize: function () {
