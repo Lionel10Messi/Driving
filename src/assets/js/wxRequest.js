@@ -1,8 +1,8 @@
 var Fly = require('flyio/dist/npm/wx')
 var fly = new Fly()
 let config = require('./config')
-let origin = config.default.isDebug ? config.default.devOrigin : config.default.prodOrigin,
-    url = origin + config.default.preHash
+let origin = config.isDebug ? config.devOrigin : config.prodOrigin,
+    url = origin + config.preHash
 
 /**
  * 微信请求get方法
