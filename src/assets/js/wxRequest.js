@@ -8,6 +8,7 @@ let origin = config.isDebug ? config.devOrigin : config.prodOrigin,
 function checkStatus(response){
   setTimeout(()=>{
     utils.hideLoading()
+    wx.hideNavigationBarLoading()
   }, 250)
   // 如果http状态码正常，则直接返回数据
   if (response && (response.status === 200 || response.status === 304 || response.status === 400)) {
@@ -31,6 +32,12 @@ function checkStatus(response){
   }
 }
 
+fly.interceptors.request.use((request) => {
+  wx.showNavigationBarLoading()
+  utils.showLoading()
+  return request
+})
+
 /**
  * 微信请求get方法
  * url
@@ -46,7 +53,6 @@ function getRequest (httpUrl, data) {
  * data 以对象的格式传入
  */
 function postRequest (httpUrl, data) {
-  utils.showLoading()
   return fly.post(url + httpUrl, data).then((response) => {
     return checkStatus(response)
   })
